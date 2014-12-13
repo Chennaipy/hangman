@@ -102,46 +102,50 @@ def playAgain():
     print('Do you want to play again? (yes or no)')
     return input().lower().startswith('y')
 
+def main():
+    print('H A N G M A N')
+    missedLetters = ''
+    correctLetters = ''
+    secretWord = getRandomWord(words)
+    gameIsDone = False
 
-print('H A N G M A N')
-missedLetters = ''
-correctLetters = ''
-secretWord = getRandomWord(words)
-gameIsDone = False
+    while True:
+        displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
 
-while True:
-    displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
+        # Let the player type in a letter.
+        guess = getGuess(missedLetters + correctLetters)
 
-    # Let the player type in a letter.
-    guess = getGuess(missedLetters + correctLetters)
+        if guess in secretWord:
+            correctLetters = correctLetters + guess
 
-    if guess in secretWord:
-        correctLetters = correctLetters + guess
-
-        # Check if the player has won
-        foundAllLetters = True
-        for i in range(len(secretWord)):
-            if secretWord[i] not in correctLetters:
-                foundAllLetters = False
-                break
-        if foundAllLetters:
-            print('Yes! The secret word is "' + secretWord + '"! You have won!')
-            gameIsDone = True
-    else:
-        missedLetters = missedLetters + guess
-
-        # Check if player has guessed too many times and lost
-        if len(missedLetters) == len(HANGMANPICS) - 1:
-            displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
-            print('You have run out of guesses!\nAfter ' + str(len(missedLetters)) + ' missed guesses and ' + str(len(correctLetters)) + ' correct guesses, the word was "' + secretWord + '"')
-            gameIsDone = True
-
-    # Ask the player if they want to play again (but only if the game is done).
-    if gameIsDone:
-        if playAgain():
-            missedLetters = ''
-            correctLetters = ''
-            gameIsDone = False
-            secretWord = getRandomWord(words)
+            # Check if the player has won
+            foundAllLetters = True
+            for i in range(len(secretWord)):
+                if secretWord[i] not in correctLetters:
+                    foundAllLetters = False
+                    break
+            if foundAllLetters:
+                print('Yes! The secret word is "' + secretWord + '"! You have won!')
+                gameIsDone = True
         else:
-            break
+            missedLetters = missedLetters + guess
+
+            # Check if player has guessed too many times and lost
+            if len(missedLetters) == len(HANGMANPICS) - 1:
+                displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
+                print('You have run out of guesses!')
+                print('After ' + str(len(missedLetters)) + ' missed guesses and ' + str(len(correctLetters)) + ' correct guesses, the word was "' + secretWord + '"')
+                gameIsDone = True
+
+        # Ask the player if they want to play again (but only if the game is done).
+        if gameIsDone:
+            if playAgain():
+                missedLetters = ''
+                correctLetters = ''
+                gameIsDone = False
+                secretWord = getRandomWord(words)
+            else:
+                break
+
+if __name__ == "__main__":
+    main()
