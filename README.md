@@ -16,4 +16,5 @@ You execute the tests, using the following command.
 
     $ python3 -m unittest discover
 
-
+For Python versions less than 3.3, the mock module needs to be
+installed to run the tests.
