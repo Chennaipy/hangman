@@ -1,6 +1,5 @@
 language: python
 python:
-	- "3.4.2"
+ - "3.4.2"
 
-script:
-	python3 -m unittest discover
+script: python3 -m unittest discover
