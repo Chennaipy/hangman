@@ -56,12 +56,13 @@ HANGMANPICS = ['''
  / \  |
       |
 =========''']
-words = 'ant baboon badger bat bear beaver camel cat clam cobra cougar coyote \
-crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard \
-llama mole monkey moose mouse mule newt otter owl panda parrot pigeon python \
-rabbit ram rat raven rhino salmon seal shark sheep skunk sloth snake spider \
-stork swan tiger toad trout turkey turtle weasel whale wolf wombat zebra \
-'.split()
+words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
+         'coyote crow deer dog donkey duck eagle ferret fox frog goat '
+         'goose hawk lion lizard llama mole monkey moose mouse mule newt '
+         'otter owl panda parrot pigeon python rabbit ram rat raven '
+         'rhino salmon seal shark sheep skunk sloth snake spider '
+         'stork swan tiger toad trout turkey turtle weasel whale wolf '
+         'wombat zebra ').split()
 
 
 def getRandomWord(wordList):
@@ -86,20 +87,20 @@ def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
 
     blanks = '_' * len(secretWord)
 
+    # replace blanks with correctly guessed letters
     for i in range(len(secretWord)):
-        # replace blanks with correctly guessed letters
         if secretWord[i] in correctLetters:
             blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
 
+    # show the secret word with spaces in between each letter
     for letter in blanks:
-        # show the secret word with spaces in between each letter
         print(letter, end=' ')
     print()
 
 
+# Returns the letter the player entered. This function makes
+# sure the player entered a single letter, and not something else.
 def getGuess(alreadyGuessed):
-    # Returns the letter the player entered. This function makes
-    # sure the player entered a single letter, and not something else.
     while True:
         print('Guess a letter.')
         guess = input()
@@ -164,8 +165,8 @@ def main():
             # (but only if the game is done).
         if gameIsDone:
             if playAgain():
-                missedLetters, correctLetters, secretWord,
-                gameIsDone = init(words)
+                (missedLetters, correctLetters,
+                 secretWord, gameIsDone) = init(words)
             else:
                 break
 
