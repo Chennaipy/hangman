@@ -74,10 +74,10 @@ class Hangman:
 
         print('H A N G M A N')
 
-def getRandomWord(wordList):
-    # This function returns a random string from the passed list of strings.
-    wordIndex = random.randint(0, len(wordList) - 1)
-    return wordList[wordIndex]
+    def getRandomWord(self, wordList):
+        # This function returns a random string from the passed list of strings.
+        wordIndex = random.randint(0, len(wordList) - 1)
+        return wordList[wordIndex]
 
 def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
     print(HANGMANPICS[len(missedLetters)])
