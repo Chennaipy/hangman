@@ -79,7 +79,7 @@ class Hangman:
         wordIndex = random.randint(0, len(wordList) - 1)
         return wordList[wordIndex]
 
-    def displayBoard(self, HANGMANPICS):
+    def displayBoard(self):
         print(HANGMANPICS[len(self.missedLetters)])
         print()
 
@@ -126,9 +126,9 @@ class Hangman:
         return True
 
 
-    def checkLost(self, HANGMANPICS):
+    def checkLost(self):
         if len(self.missedLetters) == len(HANGMANPICS) - 1:
-            self.displayBoard(HANGMANPICS)
+            self.displayBoard()
             print('You have run out of guesses!')
             print('After ' + str(len(self.missedLetters)) + ' missed guesses and ' +
                   str(len(self.correctLetters)) + ' correct guesses, the word was "' +
@@ -137,7 +137,7 @@ class Hangman:
 
     def run(self):
         while not self.gameIsDone:
-            self.displayBoard(HANGMANPICS)
+            self.displayBoard()
             
             # Let the player type in a letter.
             guess = self.getGuess(self.missedLetters + self.correctLetters)
@@ -151,7 +151,7 @@ class Hangman:
                 self.missedLetters = self.missedLetters + guess
 
                 # Check if player has guessed too many times and lost
-                self.gameIsDone = self.checkLost(HANGMANPICS)
+                self.gameIsDone = self.checkLost()
             
 
 
