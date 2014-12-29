@@ -79,26 +79,26 @@ class Hangman:
         wordIndex = random.randint(0, len(wordList) - 1)
         return wordList[wordIndex]
 
-def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
-    print(HANGMANPICS[len(missedLetters)])
-    print()
+    def displayBoard(self, HANGMANPICS):
+        print(HANGMANPICS[len(self.missedLetters)])
+        print()
 
-    print('Missed letters:', end=' ')
-    for letter in missedLetters:
-        print(letter, end=' ')
-    print()
+        print('Missed letters:', end=' ')
+        for letter in self.missedLetters:
+            print(letter, end=' ')
+        print()
 
-    blanks = '_' * len(secretWord)
+        blanks = '_' * len(self.secretWord)
 
-    # replace blanks with correctly guessed letters
-    for i in range(len(secretWord)):
-        if secretWord[i] in correctLetters:
-            blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
+        # replace blanks with correctly guessed letters
+        for i in range(len(self.secretWord)):
+            if self.secretWord[i] in self.correctLetters:
+                blanks = blanks[:i] + self.secretWord[i] + blanks[i+1:]
 
-    # show the secret word with spaces in between each letter
-    for letter in blanks:
-        print(letter, end=' ')
-    print()
+        # show the secret word with spaces in between each letter
+        for letter in blanks:
+            print(letter, end=' ')
+        print()
 
 
 # Returns the letter the player entered. This function makes
