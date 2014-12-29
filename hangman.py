@@ -65,17 +65,19 @@ words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
          'stork swan tiger toad trout turkey turtle weasel whale wolf '
          'wombat zebra ').split()
 
+class Hangman:
+    def __init__(self, words):
+        self.missedLetters = ' '
+        self.correctLetters = ' '
+        self.secretWord = self.getRandomWord(words)
+        self.gameIsDone = False
+
+        print('H A N G M A N')
 
 def getRandomWord(wordList):
     # This function returns a random string from the passed list of strings.
     wordIndex = random.randint(0, len(wordList) - 1)
     return wordList[wordIndex]
-
-
-def init(words):
-    print('H A N G M A N')
-    return ('', '', getRandomWord(words), False)
-
 
 def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
     print(HANGMANPICS[len(missedLetters)])
