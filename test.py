@@ -16,11 +16,11 @@ class HangmanTestCase(unittest.TestCase):
         self.randint = randint_patcher.start()
         self.addCleanup(randint_patcher.stop)
 
-        print_patcher = patch("builtins.print")
-        self.print = print_patcher.start()
+        print_patcher = patch("hangman.xprint")
+        self.xprint = print_patcher.start()
         self.addCleanup(print_patcher.stop)
 
-        input_patcher = patch("builtins.input")
+        input_patcher = patch("hangman.input")
         self.input = input_patcher.start()
         self.addCleanup(input_patcher.stop)
 
@@ -31,7 +31,7 @@ class HangmanTestCase(unittest.TestCase):
 
         hangman.main()
 
-        self.print.assert_any_call('Yes! The secret word is "ant"! '
+        self.xprint.assert_any_call('Yes! The secret word is "ant"! '
                                    'You have won!')
 
     def test_lose(self):
@@ -41,7 +41,7 @@ class HangmanTestCase(unittest.TestCase):
 
         hangman.main()
 
-        self.print.assert_any_call('You have run out of guesses!')
+        self.xprint.assert_any_call('You have run out of guesses!')
 
     def test_two_game(self):
         """Test two winning game plays."""
@@ -50,9 +50,9 @@ class HangmanTestCase(unittest.TestCase):
 
         hangman.main()
 
-        self.print.assert_any_call('Yes! The secret word is "ant"! '
+        self.xprint.assert_any_call('Yes! The secret word is "ant"! '
                                    'You have won!')
-        self.print.assert_any_call('Yes! The secret word is "baboon"! '
+        self.xprint.assert_any_call('Yes! The secret word is "baboon"! '
                                    'You have won!')
 
     def test_out_of_order(self):
@@ -62,7 +62,7 @@ class HangmanTestCase(unittest.TestCase):
 
         hangman.main()
 
-        self.print.assert_any_call('Yes! The secret word is "ant"! '
+        self.xprint.assert_any_call('Yes! The secret word is "ant"! '
                                    'You have won!')
 
     def test_numeric_input(self):
@@ -72,7 +72,7 @@ class HangmanTestCase(unittest.TestCase):
 
         hangman.main()
 
-        self.print.assert_any_call('Please enter a LETTER.')
+        self.xprint.assert_any_call('Please enter a LETTER.')
 
     def test_multiple_char_input(self):
         """Test error message when user inputs multiple characters."""
@@ -81,7 +81,7 @@ class HangmanTestCase(unittest.TestCase):
 
         hangman.main()
 
-        self.print.assert_any_call('Please enter a single letter.')
+        self.xprint.assert_any_call('Please enter a single letter.')
 
     def test_same_letter_twice(self):
         """Test error message when user enters same letter twice."""
@@ -90,7 +90,7 @@ class HangmanTestCase(unittest.TestCase):
 
         hangman.main()
 
-        self.print.assert_any_call("You have already guessed that letter. "
+        self.xprint.assert_any_call("You have already guessed that letter. "
                                    "Choose again.")
 
 
