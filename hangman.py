@@ -126,14 +126,14 @@ class Hangman:
         return True
 
 
-def checkLost(HANGMANPICS, missedLetters, correctLetters, secretWord):
-    if len(missedLetters) == len(HANGMANPICS) - 1:
-        displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
-        print('You have run out of guesses!')
-        print('After ' + str(len(missedLetters)) + ' missed guesses and ' +
-              str(len(correctLetters)) + ' correct guesses, the word was "' +
-              secretWord + '"')
-        return True
+    def checkLost(self, HANGMANPICS):
+        if len(self.missedLetters) == len(HANGMANPICS) - 1:
+            self.displayBoard(HANGMANPICS)
+            print('You have run out of guesses!')
+            print('After ' + str(len(self.missedLetters)) + ' missed guesses and ' +
+                  str(len(self.correctLetters)) + ' correct guesses, the word was "' +
+                  self.secretWord + '"')
+            return True
 
 
 def playAgain():
