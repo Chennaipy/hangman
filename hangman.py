@@ -106,8 +106,7 @@ class Hangman:
     def getGuess(self, alreadyGuessed):
         while True:
             print('Guess a letter.')
-            guess = input()
-            guess = guess.lower()
+            guess = input().lower()
             if len(guess) != 1:
                 print('Please enter a single letter.')
             elif guess in alreadyGuessed:
