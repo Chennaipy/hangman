@@ -144,32 +144,30 @@ def playAgain():
 
 
 def main():
-    missedLetters, correctLetters, secretWord, gameIsDone = init(words)
+    currentGame = Hangman(words)
 
     while True:
-        displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
+        currentGame.displayBoard(HANGMANPICS)
 
         # Let the player type in a letter.
-        guess = getGuess(missedLetters + correctLetters)
+        guess = currentGame.getGuess(currentGame.missedLetters + currentGame.correctLetters)
 
-        if guess in secretWord:
-            correctLetters = correctLetters + guess
+        if guess in currentGame.secretWord:
+            currentGame.correctLetters = currentGame.correctLetters + guess
 
             # Check if the player has won
-            foundAllLetters = gameIsDone = checkWin(secretWord, correctLetters)
+            currentGame.gameIsDone = currentGame.checkWin()
         else:
-            missedLetters = missedLetters + guess
+            currentGame.missedLetters = currentGame.missedLetters + guess
 
             # Check if player has guessed too many times and lost
-            gameIsDone = checkLost(HANGMANPICS, missedLetters,
-                                   correctLetters, secretWord)
+            currentGame.gameIsDone = currentGame.checkLost(HANGMANPICS)
 
             # Ask the player if they want to play again
             # (but only if the game is done).
-        if gameIsDone:
+        if currentGame.gameIsDone:
             if playAgain():
-                (missedLetters, correctLetters,
-                 secretWord, gameIsDone) = init(words)
+                currentGame = Hangman(words)
             else:
                 break
 
