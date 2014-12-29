@@ -135,6 +135,25 @@ class Hangman:
                   self.secretWord + '"')
             return True
 
+    def run(self):
+        while not self.gameIsDone:
+            self.displayBoard(HANGMANPICS)
+            
+            # Let the player type in a letter.
+            guess = self.getGuess(self.missedLetters + self.correctLetters)
+
+            if guess in self.secretWord:
+                self.correctLetters = self.correctLetters + guess
+
+                # Check if the player has won
+                self.gameIsDone = self.checkWin()
+            else:
+                self.missedLetters = self.missedLetters + guess
+
+                # Check if player has guessed too many times and lost
+                self.gameIsDone = self.checkLost(HANGMANPICS)
+            
+
 
 def playAgain():
     # This function returns True if the player wants to play again,
@@ -147,29 +166,11 @@ def main():
     currentGame = Hangman(words)
 
     while True:
-        currentGame.displayBoard(HANGMANPICS)
-
-        # Let the player type in a letter.
-        guess = currentGame.getGuess(currentGame.missedLetters + currentGame.correctLetters)
-
-        if guess in currentGame.secretWord:
-            currentGame.correctLetters = currentGame.correctLetters + guess
-
-            # Check if the player has won
-            currentGame.gameIsDone = currentGame.checkWin()
+        currentGame.run()
+        if playAgain():
+            currentGame = Hangman(words)
         else:
-            currentGame.missedLetters = currentGame.missedLetters + guess
-
-            # Check if player has guessed too many times and lost
-            currentGame.gameIsDone = currentGame.checkLost(HANGMANPICS)
-
-            # Ask the player if they want to play again
-            # (but only if the game is done).
-        if currentGame.gameIsDone:
-            if playAgain():
-                currentGame = Hangman(words)
-            else:
-                break
+            break
 
 if __name__ == "__main__":
     main()
