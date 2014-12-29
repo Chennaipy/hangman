@@ -67,8 +67,8 @@ words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
 
 class Hangman:
     def __init__(self, words):
-        self.missedLetters = ' '
-        self.correctLetters = ' '
+        self.missedLetters = ''
+        self.correctLetters = ''
         self.secretWord = self.getRandomWord(words)
         self.gameIsDone = False
 
