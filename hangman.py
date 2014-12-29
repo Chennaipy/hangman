@@ -118,12 +118,12 @@ class Hangman:
                 return guess
 
 
-def checkWin(secretWord, correctLetters):
-    for i in range(len(secretWord)):
-        if secretWord[i] not in correctLetters:
-            return False
-    print('Yes! The secret word is "' + secretWord + '"! You have won!')
-    return True
+    def checkWin(self):
+        for i in range(len(self.secretWord)):
+            if self.secretWord[i] not in self.correctLetters:
+                return False
+        print('Yes! The secret word is "' + self.secretWord + '"! You have won!')
+        return True
 
 
 def checkLost(HANGMANPICS, missedLetters, correctLetters, secretWord):
