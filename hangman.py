@@ -76,8 +76,6 @@ class Hangman:
         self.secretWord = self.getRandomWord(words)
         self.gameIsDone = False
 
-        print('H A N G M A N')
-
     def getRandomWord(self, wordList):
         # This function returns a random string from the passed list
         # of strings.
@@ -137,6 +135,8 @@ class Hangman:
             return True
 
     def run(self):
+        print('H A N G M A N')
+
         while not self.gameIsDone:
             self.displayBoard()
 
