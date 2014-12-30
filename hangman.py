@@ -137,7 +137,7 @@ class Hangman:
     def run(self):
         while not self.gameIsDone:
             self.displayBoard()
-            
+
             # Let the player type in a letter.
             guess = self.getGuess(self.missedLetters + self.correctLetters)
 
@@ -151,7 +151,7 @@ class Hangman:
 
                 # Check if player has guessed too many times and lost
                 self.gameIsDone = self.checkLost()
-            
+
 
 
 def playAgain():
