@@ -1,5 +1,6 @@
 from __future__ import print_function
 import random
+
 HANGMANPICS = ['''
 
   +---+
@@ -57,6 +58,8 @@ HANGMANPICS = ['''
  / \  |
       |
 =========''']
+
+
 words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
          'coyote crow deer dog donkey duck eagle ferret fox frog goat '
          'goose hawk lion lizard llama mole monkey moose mouse mule newt '
@@ -64,6 +67,7 @@ words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
          'rhino salmon seal shark sheep skunk sloth snake spider '
          'stork swan tiger toad trout turkey turtle weasel whale wolf '
          'wombat zebra ').split()
+
 
 class Hangman:
     def __init__(self, words):
@@ -75,7 +79,8 @@ class Hangman:
         print('H A N G M A N')
 
     def getRandomWord(self, wordList):
-        # This function returns a random string from the passed list of strings.
+        # This function returns a random string from the passed list
+        # of strings.
         wordIndex = random.randint(0, len(wordList) - 1)
         return wordList[wordIndex]
 
@@ -100,7 +105,6 @@ class Hangman:
             print(letter, end=' ')
         print()
 
-
     # Returns the letter the player entered. This function makes
     # sure the player entered a single letter, and not something else.
     def getGuess(self, alreadyGuessed):
@@ -116,14 +120,12 @@ class Hangman:
             else:
                 return guess
 
-
     def checkWin(self):
         for i in range(len(self.secretWord)):
             if self.secretWord[i] not in self.correctLetters:
                 return False
         print('Yes! The secret word is "' + self.secretWord + '"! You have won!')
         return True
-
 
     def checkLost(self):
         if len(self.missedLetters) == len(HANGMANPICS) - 1:
@@ -151,7 +153,6 @@ class Hangman:
 
                 # Check if player has guessed too many times and lost
                 self.gameIsDone = self.checkLost()
-
 
 
 def playAgain():
