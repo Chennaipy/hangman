@@ -13,9 +13,9 @@ class HangmanTestCase(unittest.TestCase):
     """Test case for hangman game."""
 
     def setUp(self):
-        randint_patcher = patch("hangman.random.randint")
-        self.randint = randint_patcher.start()
-        self.addCleanup(randint_patcher.stop)
+        randchoice_patcher = patch("hangman.random.choice")
+        self.choice = randchoice_patcher.start()
+        self.addCleanup(randchoice_patcher.stop)
 
         print_patcher = patch("hangman.xprint")
         self.xprint = print_patcher.start()
@@ -27,7 +27,7 @@ class HangmanTestCase(unittest.TestCase):
 
     def test_win(self):
         """Test user win scenario."""
-        self.randint.return_value = 0
+        self.choice.return_value = "ant" 
         self.input.side_effect = list("ant" "n")
 
         hangman.main()
@@ -37,7 +37,7 @@ class HangmanTestCase(unittest.TestCase):
 
     def test_lose(self):
         """Test user lose scenario."""
-        self.randint.return_value = 0
+        self.choice.return_value = "ant" 
         self.input.side_effect = list("bcdefg" "n")
 
         hangman.main()
@@ -46,7 +46,7 @@ class HangmanTestCase(unittest.TestCase):
 
     def test_two_game(self):
         """Test two winning game plays."""
-        self.randint.side_effect = [0, 1]
+        self.choice.side_effect = ["ant", "baboon"]
         self.input.side_effect = list("ant" "y" "babon" "n")
 
         hangman.main()
@@ -58,7 +58,7 @@ class HangmanTestCase(unittest.TestCase):
 
     def test_out_of_order(self):
         """Test win scenario with out of order input of letters."""
-        self.randint.return_value = 0
+        self.choice.return_value = "ant"
         self.input.side_effect = list("tan" "n")
 
         hangman.main()
@@ -68,7 +68,7 @@ class HangmanTestCase(unittest.TestCase):
 
     def test_numeric_input(self):
         """Test error message when user inputs numbers."""
-        self.randint.return_value = 0
+        self.choice.return_value = "ant"
         self.input.side_effect = list("a2nt" "n")
 
         hangman.main()
@@ -77,7 +77,7 @@ class HangmanTestCase(unittest.TestCase):
 
     def test_multiple_char_input(self):
         """Test error message when user inputs multiple characters."""
-        self.randint.return_value = 0
+        self.choice.return_value = "ant"
         self.input.side_effect = ["a", "nt", "n", "t", ] + ["n"]
 
         hangman.main()
@@ -86,7 +86,7 @@ class HangmanTestCase(unittest.TestCase):
 
     def test_same_letter_twice(self):
         """Test error message when user enters same letter twice."""
-        self.randint.return_value = 0
+        self.choice.return_value = "ant"
         self.input.side_effect = list("anntn")
 
         hangman.main()
