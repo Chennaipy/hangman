@@ -72,27 +72,26 @@ words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
 
 class Hangman:
     def __init__(self, words):
-        self.missedLetters = ''
-        self.correctLetters = ''
-        self.secretWord = random.choice(words)
-        self.gameIsDone = False
+        self.missed_letters = ''
+        self.correct_letters = ''
+        self.secret_word = random.choice(words)
+        self.game_is_done = False
 
-
-    def displayBoard(self):
-        xprint(HANGMANPICS[len(self.missedLetters)])
+    def display_board(self):
+        xprint(HANGMANPICS[len(self.missed_letters)])
         xprint()
 
         xprint('Missed letters:', end=' ')
-        for letter in self.missedLetters:
+        for letter in self.missed_letters:
             xprint(letter, end=' ')
         xprint()
 
-        blanks = '_' * len(self.secretWord)
+        blanks = '_' * len(self.secret_word)
 
         # replace blanks with correctly guessed letters
-        for i in range(len(self.secretWord)):
-            if self.secretWord[i] in self.correctLetters:
-                blanks = blanks[:i] + self.secretWord[i] + blanks[i+1:]
+        for i in range(len(self.secret_word)):
+            if self.secret_word[i] in self.correct_letters:
+                blanks = blanks[:i] + self.secret_word[i] + blanks[i+1:]
 
         # show the secret word with spaces in between each letter
         for letter in blanks:
@@ -101,57 +100,57 @@ class Hangman:
 
     # Returns the letter the player entered. This function makes
     # sure the player entered a single letter, and not something else.
-    def getGuess(self, alreadyGuessed):
+    def get_guess(self, already_guessed):
         while True:
             xprint('Guess a letter.')
             guess = input().lower()
             if len(guess) != 1:
                 xprint('Please enter a single letter.')
-            elif guess in alreadyGuessed:
+            elif guess in already_guessed:
                 xprint('You have already guessed that letter. Choose again.')
             elif guess not in 'abcdefghijklmnopqrstuvwxyz':
                 xprint('Please enter a LETTER.')
             else:
                 return guess
 
-    def checkWin(self):
-        for i in range(len(self.secretWord)):
-            if self.secretWord[i] not in self.correctLetters:
+    def check_win(self):
+        for i in range(len(self.secret_word)):
+            if self.secret_word[i] not in self.correct_letters:
                 return False
-        xprint('Yes! The secret word is "' + self.secretWord + '"! You have won!')
+        xprint('Yes! The secret word is "' + self.secret_word + '"! You have won!')
         return True
 
-    def checkLost(self):
-        if len(self.missedLetters) == len(HANGMANPICS) - 1:
-            self.displayBoard()
+    def check_lost(self):
+        if len(self.missed_letters) == len(HANGMANPICS) - 1:
+            self.display_board()
             xprint('You have run out of guesses!')
-            xprint('After ' + str(len(self.missedLetters)) + ' missed guesses and ' +
-                   str(len(self.correctLetters)) + ' correct guesses, the word was "' +
-                   self.secretWord + '"')
+            xprint('After ' + str(len(self.missed_letters)) + ' missed guesses and ' +
+                   str(len(self.correct_letters)) + ' correct guesses, the word was "' +
+                   self.secret_word + '"')
             return True
 
     def run(self):
         xprint('H A N G M A N')
 
-        while not self.gameIsDone:
-            self.displayBoard()
+        while not self.game_is_done:
+            self.display_board()
 
             # Let the player type in a letter.
-            guess = self.getGuess(self.missedLetters + self.correctLetters)
+            guess = self.get_guess(self.missed_letters + self.correct_letters)
 
-            if guess in self.secretWord:
-                self.correctLetters = self.correctLetters + guess
+            if guess in self.secret_word:
+                self.correct_letters = self.correct_letters + guess
 
                 # Check if the player has won
-                self.gameIsDone = self.checkWin()
+                self.game_is_done = self.check_win()
             else:
-                self.missedLetters = self.missedLetters + guess
+                self.missed_letters = self.missed_letters + guess
 
                 # Check if player has guessed too many times and lost
-                self.gameIsDone = self.checkLost()
+                self.game_is_done = self.check_lost()
 
 
-def playAgain():
+def play_again():
     # This function returns True if the player wants to play again,
     # otherwise it returns False.
     xprint('Do you want to play again? (yes or no)')
@@ -159,12 +158,12 @@ def playAgain():
 
 
 def main():
-    currentGame = Hangman(words)
+    current_game = Hangman(words)
 
     while True:
-        currentGame.run()
-        if playAgain():
-            currentGame = Hangman(words)
+        current_game.run()
+        if play_again():
+            current_game = Hangman(words)
         else:
             break
 
