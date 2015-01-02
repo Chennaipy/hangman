@@ -1,4 +1,7 @@
-# Hangman [![Build Status](https://travis-ci.org/Chennaipy/hangman.svg?branch=master)](https://travis-ci.org/Chennaipy/hangman)
+# Hangman
+
+[![Build Status](https://travis-ci.org/Chennaipy/hangman.svg?branch=master)](https://travis-ci.org/Chennaipy/hangman)
+[![Coverage Status](https://img.shields.io/coveralls/Chennaipy/hangman.svg)](https://coveralls.io/r/Chennaipy/hangman)
 
 The goal of this project is to learn and implement the best practices,
 in writing and maintaining a Python project. For this purpose, we use
