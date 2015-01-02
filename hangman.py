@@ -74,14 +74,9 @@ class Hangman:
     def __init__(self, words):
         self.missedLetters = ''
         self.correctLetters = ''
-        self.secretWord = self.getRandomWord(words)
+        self.secretWord = random.choice(words)
         self.gameIsDone = False
 
-    def getRandomWord(self, wordList):
-        # This function returns a random string from the passed list
-        # of strings.
-        wordIndex = random.randint(0, len(wordList) - 1)
-        return wordList[wordIndex]
 
     def displayBoard(self):
         xprint(HANGMANPICS[len(self.missedLetters)])
