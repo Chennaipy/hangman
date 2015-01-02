@@ -10,7 +10,7 @@ install:
   - pip install coverage
   - pip install python-coveralls
 
-script: coverage python setup.py test
+script: coverage run setup.py test
 
 after_success:
   - coveralls
