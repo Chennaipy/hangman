@@ -74,7 +74,7 @@ class Hangman:
     def __init__(self, words):
         """
             The constructor for the class.
-            selects the secret word for the current game by a random choice from a list of words.
+            Selects the secret word for the current game by a random choice from a list of words.
         """
         self._missed_letters = ''
         self._correct_letters = ''
