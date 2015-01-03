@@ -72,12 +72,20 @@ words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
 
 class Hangman:
     def __init__(self, words):
+        """
+            The constructor for the class.
+            selects the secret word for the current game by a random choice from a list of words.
+        """
         self._missed_letters = ''
         self._correct_letters = ''
         self._secret_word = random.choice(words)
         self._game_is_done = False
 
     def _display_board(self):
+        """
+            This function displays the current status of the game that is being played. 
+
+        """
         xprint(HANGMANPICS[len(self._missed_letters)])
         xprint()
 
@@ -101,6 +109,10 @@ class Hangman:
     # Returns the letter the player entered. This function makes
     # sure the player entered a single letter, and not something else.
     def _get_guess(self, already_guessed):
+        """
+            This function is used to get the input from the user. 
+            It makes sure that the input entered is a letter and the letter entered is not already guessed by the user.
+        """
         while True:
             xprint('Guess a letter.')
             guess = input().lower()
@@ -114,6 +126,9 @@ class Hangman:
                 return guess
 
     def _check_win(self):
+        """
+            This function checks if the user has correctly guessed the secret word
+        """
         for i in range(len(self._secret_word)):
             if self._secret_word[i] not in self._correct_letters:
                 return False
@@ -121,6 +136,9 @@ class Hangman:
         return True
 
     def _check_lost(self):
+        """
+            This function alerts the user if all his chances have been used, without guessing the secret word
+        """
         if len(self._missed_letters) == len(HANGMANPICS) - 1:
             self._display_board()
             xprint('You have run out of guesses!')
@@ -130,6 +148,10 @@ class Hangman:
             return True
 
     def run(self):
+        """
+            This function coordinates the game activitites.
+            Initialises the game play
+        """
         xprint('H A N G M A N')
 
         while not self._game_is_done:
