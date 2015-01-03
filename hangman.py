@@ -82,10 +82,8 @@ class Hangman:
         self._game_is_done = False
 
     def _display_board(self):
-        """
-            This function displays the current status of the game that is being played. 
+        """ This function displays the current status of the game that is being played. """
 
-        """
         xprint(HANGMANPICS[len(self._missed_letters)])
         xprint()
 
@@ -126,9 +124,8 @@ class Hangman:
                 return guess
 
     def _check_win(self):
-        """
-            This function checks if the user has correctly guessed the secret word
-        """
+        """ This function checks if the user has correctly guessed the secret word. """
+
         for i in range(len(self._secret_word)):
             if self._secret_word[i] not in self._correct_letters:
                 return False
@@ -136,9 +133,8 @@ class Hangman:
         return True
 
     def _check_lost(self):
-        """
-            This function alerts the user if all his chances have been used, without guessing the secret word
-        """
+        """  This function alerts the user if all his chances have been used, without guessing the secret word. """
+
         if len(self._missed_letters) == len(HANGMANPICS) - 1:
             self._display_board()
             xprint('You have run out of guesses!')
@@ -150,7 +146,7 @@ class Hangman:
     def run(self):
         """
             This function coordinates the game activitites.
-            Initialises the game play
+            Initialises the game play.
         """
         xprint('H A N G M A N')
 
