@@ -72,7 +72,15 @@ words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
 
 class Hangman:
     def __init__(self, words):
-        """Selects the secret word for the current game by a random choice from a list of words."""
+        """
+        Selects the secret word for the current game by a random choice from a list of words.
+
+        Args: 
+            A list containing the list of words from which the secret word has to be chosen.
+
+        Returns: None
+        
+        """
         self._missed_letters = ''
         self._correct_letters = ''
         self._secret_word = random.choice(words)
