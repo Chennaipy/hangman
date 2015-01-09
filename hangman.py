@@ -137,7 +137,10 @@ class Hangman:
         for i in range(len(self._secret_word)):
             if self._secret_word[i] not in self._correct_letters:
                 return False
-        xprint('Yes! The secret word is "' + self._secret_word + '"! You have won!')
+
+        xprint('Yes! The secret word is "{0}"! '
+               'You have won!'.format(self._secret_word))
+
         return True
 
     def _check_lost(self):
@@ -149,10 +152,14 @@ class Hangman:
 
         if len(self._missed_letters) == len(HANGMANPICS) - 1:
             self._display_board()
+
+            missed = len(self._missed_letters)
+            correct = len(self._correct_letters)
+            word = self._secret_word
             xprint('You have run out of guesses!')
-            xprint('After ' + str(len(self._missed_letters)) + ' missed guesses and ' +
-                   str(len(self._correct_letters)) + ' correct guesses, the word was "' +
-                   self._secret_word + '"')
+            xprint('After {0} missed guesses and {1} correct guesses, '
+                   'the word was "{2}"'.format(missed, correct, word))
+            
             return True
 
         return False
