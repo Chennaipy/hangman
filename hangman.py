@@ -109,8 +109,6 @@ class Hangman:
             xprint(letter, end=' ')
         xprint()
 
-    # Returns the letter the player entered. This function makes
-    # sure the player entered a single letter, and not something else.
     def _get_guess(self, already_guessed):
         """Gets the input from the user. 
         
@@ -165,18 +163,13 @@ class Hangman:
         while not self._game_is_done:
             self._display_board()
 
-            # Let the player type in a letter.
             guess = self._get_guess(self._missed_letters + self._correct_letters)
 
             if guess in self._secret_word:
                 self._correct_letters = self._correct_letters + guess
-
-                # Check if the player has won
                 self._game_is_done = self._check_win()
             else:
                 self._missed_letters = self._missed_letters + guess
-
-                # Check if player has guessed too many times and lost
                 self._game_is_done = self._check_lost()
 
 
