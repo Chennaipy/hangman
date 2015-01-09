@@ -174,13 +174,15 @@ class Hangman:
 
 
 def play_again():
-    # This function returns True if the player wants to play again,
-    # otherwise it returns False.
+    """Returns True if the player wants to play again, False otherwise."""
+
     xprint('Do you want to play again? (yes or no)')
     return input().lower().startswith('y')
 
 
 def main():
+    """Main application entry point."""
+
     current_game = Hangman(words)
 
     while True:
