@@ -172,7 +172,8 @@ class Hangman:
         while not self._game_is_done:
             self._display_board()
 
-            guess = self._get_guess(self._missed_letters + self._correct_letters)
+            guessed_letters = self._missed_letters + self._correct_letters
+            guess = self._get_guess(guessed_letters)
 
             if guess in self._secret_word:
                 self._correct_letters = self._correct_letters + guess
