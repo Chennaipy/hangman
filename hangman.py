@@ -73,11 +73,11 @@ words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
 class Hangman:
     def __init__(self, words):
         """Initializes the game state
-        
+
         Selects the secret word for the game by a random choice
         from a list of words.
 
-        Args: 
+        Args:
             words (list of strings): List of words to choose from
         """
 
@@ -110,9 +110,9 @@ class Hangman:
         xprint()
 
     def _get_guess(self, already_guessed):
-        """Gets the input from the user. 
-        
-        Makes sure that the input entered is a letter and 
+        """Gets the input from the user.
+
+        Makes sure that the input entered is a letter and
         the letter entered is not already guessed by the user.
         """
 
@@ -131,7 +131,7 @@ class Hangman:
     def _check_win(self):
         """Returns True if the user has won, False otherwise.
 
-        Checks if the user has correctly guessed the secret word. 
+        Checks if the user has correctly guessed the secret word.
         """
 
         for i in range(len(self._secret_word)):
@@ -141,10 +141,10 @@ class Hangman:
         return True
 
     def _check_lost(self):
-        """Returns True if the user has lost, False otherwise. 
-        
-        Alerts the user if all his chances have been used, without 
-        guessing the secret word. 
+        """Returns True if the user has lost, False otherwise.
+
+        Alerts the user if all his chances have been used, without
+        guessing the secret word.
         """
 
         if len(self._missed_letters) == len(HANGMANPICS) - 1:
