@@ -155,6 +155,8 @@ class Hangman:
                    self._secret_word + '"')
             return True
 
+        return False
+
     def run(self):
         """Initialises the game play and coordinates the game activities."""
 
