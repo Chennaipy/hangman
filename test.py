@@ -27,13 +27,13 @@ class HangmanTestCase(unittest.TestCase):
 
     def test_win(self):
         """Test user win scenario."""
-        self.choice.return_value = "ant" 
+        self.choice.return_value = "ant"
         self.input.side_effect = list("ant" "n")
 
         hangman.main()
 
         self.xprint.assert_any_call('Yes! The secret word is "ant"! '
-                                   'You have won!')
+                                    'You have won!')
 
     def test_lose(self):
         """Test user lose scenario."""
@@ -52,9 +52,9 @@ class HangmanTestCase(unittest.TestCase):
         hangman.main()
 
         self.xprint.assert_any_call('Yes! The secret word is "ant"! '
-                                   'You have won!')
+                                    'You have won!')
         self.xprint.assert_any_call('Yes! The secret word is "baboon"! '
-                                   'You have won!')
+                                    'You have won!')
 
     def test_out_of_order(self):
         """Test win scenario with out of order input of letters."""
@@ -64,7 +64,7 @@ class HangmanTestCase(unittest.TestCase):
         hangman.main()
 
         self.xprint.assert_any_call('Yes! The secret word is "ant"! '
-                                   'You have won!')
+                                    'You have won!')
 
     def test_numeric_input(self):
         """Test error message when user inputs numbers."""
@@ -92,7 +92,7 @@ class HangmanTestCase(unittest.TestCase):
         hangman.main()
 
         self.xprint.assert_any_call("You have already guessed that letter. "
-                                   "Choose again.")
+                                    "Choose again.")
 
 
 if __name__ == "__main__":
