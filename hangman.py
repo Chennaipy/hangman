@@ -115,7 +115,9 @@ class Hangman:
         """Gets the input from the user. 
         
         Makes sure that the input entered is a letter and 
-        the letter entered is not already guessed by the user."""
+        the letter entered is not already guessed by the user.
+        """
+
         while True:
             xprint('Guess a letter.')
             guess = input().lower()
@@ -157,6 +159,7 @@ class Hangman:
 
     def run(self):
         """Initialises the game play and coordinates the game activities."""
+
         xprint('H A N G M A N')
 
         while not self._game_is_done:
