@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from six import print_ as xprint
 from six.moves import input
 import random
