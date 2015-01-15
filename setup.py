@@ -9,6 +9,7 @@ setup(name='gallows',
       author='Vijay Kumar B.',
       author_email='vijaykumar@bravegnu.org',
       url='http://github.com/chennaipy/hangman',
+      license="BSD 2-Clause",
       scripts=['gallows.py'],
       install_requires=[
           'six',
