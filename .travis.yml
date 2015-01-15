@@ -22,3 +22,4 @@ deploy:
     secure: gSJMMPUd5+Trg4vhcKrbAjcryzreH5ie/vPuym8iuqVYn9jBUeOxBmZSvLH9aIskvG4Bf9gzu4dw7sLB1updh/RazcsVGzR0aO0kwZP5Y2IQTtnHH6R51ESIi6yW9N+T8hbYca34UOPPvo2xduN4vG1PCPmI2W4AQ/hhWAP95vE=
   on: 
     tags: true
+    all_branches: true
