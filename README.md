@@ -13,7 +13,7 @@ Computer Games with Python"](http://inventwithpython.com/chapters/).
 After cloning the repository, you can run the game using the following
 command.
 
-    $ python3 hangman.py
+    $ python3 gallows.py
 
 You execute the tests, using the following command.
 

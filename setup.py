@@ -2,14 +2,14 @@
 
 from setuptools import setup
 
-setup(name='Hangman',
+setup(name='gallows',
       version='0.1.0',
       description=("The word game Hangman based on 'Invent Your "
                    "Own Computer Games with Python'."),
       author='Vijay Kumar B.',
       author_email='vijaykumar@bravegnu.org',
       url='http://github.com/chennaipy/hangman',
-      scripts=['hangman.py'],
+      scripts=['gallows.py'],
       install_requires=[
           'six',
       ],

@@ -6,22 +6,22 @@ try:
 except ImportError:
     from mock import patch
 
-import hangman
+import gallows
 
 
 class HangmanTestCase(unittest.TestCase):
     """Test case for hangman game."""
 
     def setUp(self):
-        randchoice_patcher = patch("hangman.random.choice")
+        randchoice_patcher = patch("gallows.random.choice")
         self.choice = randchoice_patcher.start()
         self.addCleanup(randchoice_patcher.stop)
 
-        print_patcher = patch("hangman.xprint")
+        print_patcher = patch("gallows.xprint")
         self.xprint = print_patcher.start()
         self.addCleanup(print_patcher.stop)
 
-        input_patcher = patch("hangman.input")
+        input_patcher = patch("gallows.input")
         self.input = input_patcher.start()
         self.addCleanup(input_patcher.stop)
 
@@ -30,7 +30,7 @@ class HangmanTestCase(unittest.TestCase):
         self.choice.return_value = "ant"
         self.input.side_effect = list("ant" "n")
 
-        hangman.main()
+        gallows.main()
 
         self.xprint.assert_any_call('Yes! The secret word is "ant"! '
                                     'You have won!')
@@ -40,7 +40,7 @@ class HangmanTestCase(unittest.TestCase):
         self.choice.return_value = "ant" 
         self.input.side_effect = list("bcdefg" "n")
 
-        hangman.main()
+        gallows.main()
 
         self.xprint.assert_any_call('You have run out of guesses!')
 
@@ -49,7 +49,7 @@ class HangmanTestCase(unittest.TestCase):
         self.choice.side_effect = ["ant", "baboon"]
         self.input.side_effect = list("ant" "y" "babon" "n")
 
-        hangman.main()
+        gallows.main()
 
         self.xprint.assert_any_call('Yes! The secret word is "ant"! '
                                     'You have won!')
@@ -61,7 +61,7 @@ class HangmanTestCase(unittest.TestCase):
         self.choice.return_value = "ant"
         self.input.side_effect = list("tan" "n")
 
-        hangman.main()
+        gallows.main()
 
         self.xprint.assert_any_call('Yes! The secret word is "ant"! '
                                     'You have won!')
@@ -71,7 +71,7 @@ class HangmanTestCase(unittest.TestCase):
         self.choice.return_value = "ant"
         self.input.side_effect = list("a2nt" "n")
 
-        hangman.main()
+        gallows.main()
 
         self.xprint.assert_any_call('Please enter a LETTER.')
 
@@ -80,7 +80,7 @@ class HangmanTestCase(unittest.TestCase):
         self.choice.return_value = "ant"
         self.input.side_effect = ["a", "nt", "n", "t", ] + ["n"]
 
-        hangman.main()
+        gallows.main()
 
         self.xprint.assert_any_call('Please enter a single letter.')
 
@@ -89,7 +89,7 @@ class HangmanTestCase(unittest.TestCase):
         self.choice.return_value = "ant"
         self.input.side_effect = list("anntn")
 
-        hangman.main()
+        gallows.main()
 
         self.xprint.assert_any_call("You have already guessed that letter. "
                                     "Choose again.")
