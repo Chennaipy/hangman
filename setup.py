@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='gallows',
-      version='0.1.0',
+      version='0.2.0',
       description=("The word game Hangman based on 'Invent Your "
                    "Own Computer Games with Python'."),
       author='Vijay Kumar B.',
