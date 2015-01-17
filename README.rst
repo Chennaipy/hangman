@@ -9,18 +9,18 @@ Gallows
 
 The goal of this project is to learn and implement the best practices,
 in writing and maintaining a Python project. For this purpose, we use
-a simple Gallows game program, from the book `"Invent Your Own
+a simple Hangman game program, from the book `"Invent Your Own
 Computer Games with Python" <http://inventwithpython.com/chapters/>`_.
 
 Usage
 -----
 
 After cloning the repository, you can run the game using the following
-command.::
+command ::
 
   $ python3 gallows.py
 
-You execute the tests, using the following command.::
+You execute the tests, using the following command ::
 
   $ python3 -m unittest discover
 
