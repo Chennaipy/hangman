@@ -1,6 +1,8 @@
 Changelog
 =========
 
+* :release:`0.4.0 <23-01-2015>`
+
 * :support:`44` Updated README.rst to reflect the current usage and
   development procedures.
 
