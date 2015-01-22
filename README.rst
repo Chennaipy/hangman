@@ -15,14 +15,34 @@ Computer Games with Python" <http://inventwithpython.com/chapters/>`_.
 Usage
 -----
 
-After cloning the repository, you can run the game using the following
+The game can be installed using the following command ::
+
+  $ pip install gallows
+
+Once installed the game can be played using the following command ::
+
+  $ gallows.py
+
+Development
+-----------
+
+After cloning the repository, install the game in development mode
+using the following command ::
+
+  $ python3 setup.py develop
+
+You can modify the program and then test it by using the following
 command ::
 
-  $ python3 gallows.py
+  $ gallows.py
 
-You execute the tests, using the following command ::
+You can execute the unit tests, using the following command ::
 
-  $ python3 -m unittest discover
+  $ python3 setup.py test
 
-For Python versions less than 3.3, the mock module needs to be
-installed to run the tests.
+You can build the documentation, using the following commands ::
+
+  $ pip install -r doc-requirements.txt
+  $ cd doc
+  $ make html
+
