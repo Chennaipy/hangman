@@ -7,6 +7,11 @@ Gallows
 .. image:: https://img.shields.io/coveralls/Chennaipy/hangman.svg?style=flat
   :target: https://coveralls.io/r/Chennaipy/hangman
 
+.. image:: https://pypip.in/version/gallows/badge.svg?style=flat
+  :target: https://pypi.python.org/pypi/gallows/
+  :alt: Latest Version
+
+
 The goal of this project is to learn and implement the best practices,
 in writing and maintaining a Python project. For this purpose, we use
 a simple Hangman game program, from the book `"Invent Your Own
