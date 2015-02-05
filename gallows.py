@@ -160,7 +160,7 @@ class Hangman:
             xprint('You have run out of guesses!')
             xprint('After {0} missed guesses and {1} correct guesses, '
                    'the word was "{2}"'.format(missed, correct, word))
-            
+
             return True
 
         return False
@@ -188,7 +188,7 @@ def play_again():
     """Returns True if the player wants to play again, False otherwise."""
 
     xprint('Do you want to play again? (yes or no)')
-    return input().lower().startswith('y')
+    return input().lower() is 'yes'
 
 
 def main():
