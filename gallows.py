@@ -188,7 +188,7 @@ def play_again():
     """Returns True if the player wants to play again, False otherwise."""
 
     xprint('Do you want to play again? (yes or no)')
-    return input().lower() is 'yes'
+    return input().lower() == 'yes'
 
 
 def main():

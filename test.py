@@ -46,8 +46,9 @@ class HangmanTestCase(unittest.TestCase):
 
     def test_two_game(self):
         """Test two winning game plays."""
+        from itertools import chain
         self.choice.side_effect = ["ant", "baboon"]
-        self.input.side_effect = list("ant" "y" "babon" "n")
+        self.input.side_effect = chain(list("ant"), ["yes"], list("babon"), ["no"])
 
         gallows.main()
 
