@@ -5,7 +5,7 @@ Changelog
 
 * :release:`0.5.0 <29-01-2015>`
 
-* :support:`45` Added long_description to setup.py, this will appear
+* :support:`46` Added long_description to setup.py, this will appear
   as package description on PyPI.
 
 * :release:`0.4.0 <23-01-2015>`
