@@ -6,7 +6,7 @@ def readme():
     return open("README.rst").read()
 
 setup(name='gallows',
-      version='0.5.0',
+      version='0.6.0',
       description=("The word game Hangman based on 'Invent Your "
                    "Own Computer Games with Python'."),
       long_description=readme(),
