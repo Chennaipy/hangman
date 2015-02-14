@@ -22,5 +22,21 @@ setup(name='gallows',
           'unittest2',
           'mock',
       ],
-      test_suite="test"
-      )
+      test_suite="test",
+      classifiers=[
+          'Development Status :: 5 - Production/Stable',
+          'Environment :: Console',
+          'Intended Audience :: End Users/Desktop',
+          'Intended Audience :: Education',
+          'License :: OSI Approved :: BSD License',
+          'Natural Language :: English',
+          'Operating System :: MacOS :: MacOS X',
+          'Operating System :: Microsoft :: Windows',
+          'Operating System :: POSIX',
+          'Programming Language :: Python :: 2.6',
+          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3.2',
+          'Programming Language :: Python :: 3.3',
+          'Programming Language :: Python :: 3.4',
+          'Topic :: Games/Entertainment :: Puzzle Games',
+      ])

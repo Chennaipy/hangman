@@ -1,6 +1,8 @@
 Changelog
 =========
 
+* :support:`22` Added Trove classifiers to setup.py.
+
 * :release:`0.5.0 <29-01-2015>`
 
 * :support:`45` Added long_description to setup.py, this will appear
