@@ -15,6 +15,10 @@ Gallows
   :target: https://readthedocs.org/projects/gallows/?badge=latest
      :alt: Documentation Status
 
+.. image:: https://pypip.in/py_versions/gallows/badge.svg?style=flat
+    :target: https://pypi.python.org/pypi/gallows/
+    :alt: Supported Python versions
+
 The goal of this project is to learn and implement the best practices,
 in writing and maintaining a Python project. For this purpose, we use
 a simple Hangman game program, from the book `"Invent Your Own
