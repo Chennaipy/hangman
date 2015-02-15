@@ -33,7 +33,7 @@ The game can be installed using the following command ::
 
 Once installed the game can be played using the following command ::
 
-  $ gallows.py
+  $ gallows
 
 Development
 -----------
@@ -46,7 +46,7 @@ using the following command ::
 You can modify the program and then test it by using the following
 command ::
 
-  $ gallows.py
+  $ gallows
 
 You can execute the unit tests, using the following command ::
 
