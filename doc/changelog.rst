@@ -1,6 +1,10 @@
 Changelog
 =========
 
+* :feature:`39` Added support to autogenerate entry points.
+
+* :support:`37` Added badge for supported Python version.
+
 * :release:`0.6.0 <14-02-2015>`
 
 * :support:`22` Added Trove classifiers to setup.py.
