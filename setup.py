@@ -14,7 +14,10 @@ setup(name='gallows',
       author_email='vijaykumar@bravegnu.org',
       url='http://github.com/chennaipy/hangman',
       license="BSD 2-Clause",
-      scripts=['gallows.py'],
+      py_modules=['gallows'],
+      entry_points={
+          'console_scripts': ['gallows=gallows:main']
+      },
       install_requires=[
           'six',
       ],
