@@ -1,11 +1,13 @@
 Changelog
 =========
 
+* :release:`0.6.0 <14-02-2015>`
+
 * :support:`22` Added Trove classifiers to setup.py.
 
 * :support:`37` Added PyPI version and RTD badges.
 
-* Improved comparison for yes / no in play_again().
+* :feature:`48` Improved comparison for yes / no in play_again().
 
 * :release:`0.5.0 <29-01-2015>`
 
