@@ -7,7 +7,7 @@ Gallows
 .. image:: https://img.shields.io/coveralls/Chennaipy/hangman.svg?style=flat
   :target: https://coveralls.io/r/Chennaipy/hangman
 
-.. image:: https://pypip.in/version/gallows/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/v/gallows.svg?style=flat
   :target: https://pypi.python.org/pypi/gallows/
   :alt: Latest Version
 
@@ -15,7 +15,7 @@ Gallows
   :target: https://readthedocs.org/projects/gallows/?badge=latest
      :alt: Documentation Status
 
-.. image:: https://pypip.in/py_versions/gallows/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/pyversions/gallows.svg?style=flat
     :target: https://pypi.python.org/pypi/gallows/
     :alt: Supported Python versions
 
