@@ -1,5 +1,8 @@
+.. contents:: :local:
+
+*******
 Gallows
-=======
+*******
 
 .. image:: https://travis-ci.org/Chennaipy/hangman.svg?branch=master
   :target: https://travis-ci.org/Chennaipy/hangman
@@ -25,7 +28,7 @@ a simple Hangman game program, from the book `"Invent Your Own
 Computer Games with Python" <http://inventwithpython.com/chapters/>`_.
 
 Usage
------
+=====
 
 The game can be installed using the following command ::
 
@@ -34,9 +37,55 @@ The game can be installed using the following command ::
 Once installed the game can be played using the following command ::
 
   $ gallows
+  
+If the following command does not run the game, run the 'gallows.py'
+file within your local IDE
+
+Gameplay
+========
+
+Initialized, you will see the following screen ::
+  
+  H A N G M A N
+
+
+    +---+
+    |   |
+        |
+        |
+        |
+        |
+  =========
+
+  Missed letters: 
+  _ _ _ _ 
+  Guess a letter.
+
+You must now guess a letter. Please input a single letter.
+If a letter appears in the word, the letter will appear in 
+the bottom, such as in this example: ::
+  
+    +---+
+    |   |
+    O   |
+        |
+        |
+        |
+  =========
+
+  Missed letters: e 
+  _ _ a _ 
+  Guess a letter.
+  
+If a letter is missed, it will appear in the row denoted "missed letters" 
+and a body part will be added to the stickman.
+
+Once the game ends (either via loss or victory), you will be prompted if 
+you would like to continue. Ensure that you respond with "yes" as any 
+other response will end the game.
 
 Development
------------
+===========
 
 After cloning the repository, install the game in development mode
 using the following command ::
@@ -57,4 +106,9 @@ You can build the documentation, using the following commands ::
   $ pip install -r doc-requirements.txt
   $ cd doc
   $ make html
+  
+License
+=======
+
+BSD-2-Clause License
 
